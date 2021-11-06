@@ -1,0 +1,53 @@
+﻿@model JoesPizza.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+<head>
+
+    <link rel="stylesheet" href="~/css/StyleSheet.css">
+</head>
+<style>
+       .Register {
+        padding-top: 40px;
+        color: #8C55AA;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: bold;
+        font-size: 23px;
+    }
+</style>
+
+
+<hr />
+<div class="main">
+    <p class="Register" align="center">Register</p>
+    <form class="form1" method="post" asp-controller="Account" asp-action="Register">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+           
+            <input asp-for="UserName" class="un form-control" placeholder="Username" required />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+         
+            <input  asp-for="Password" class="pass form-control" placeholder="Password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+           
+            <input name="ConfirmPassword" class="pass form-control" placeholder="Confirm Password" required />
+            <span class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Register" class="submit" />
+        </div>
+        <div style="color:red" align="center">
+            @ViewBag.Error
+        </div>
+    </form>
+</div>
+
+
+
+

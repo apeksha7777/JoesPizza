@@ -1,0 +1,56 @@
+﻿
+@model IEnumerable<JoesPizza.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+     .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+     }
+    .truncated {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+
+
+    <div class="container-fluid" style="padding-right:150px;padding-left:150px">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3" style="margin-bottom:35px;">
+                    <div class="card shadow-sm">
+                       
+                        <img  src="@item.Image" name="ProductImage" width="100%" height="140" />
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b name="ProductName">
+                                    @item.Name
+                                </b><br />
+                                <b name="ProductPrice">
+                                    ₹@item.Price
+                                </b><br />
+
+                            <p name="ProductDesc" class="truncated">@item.Description</p>
+                            </p>
+
+                            <div>
+                                <a type="button" class="btn btn-sm btn-outline-primary" asp-controller="Product" asp-route-id="@item.Id" asp-action="Details">View Details</a>
+                                <a type="button" name="addToCart" class="btn btn-sm btn-success" asp-controller="Cart" asp-action="AddItem" asp-route-id="@item.Id">Add to cart</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
