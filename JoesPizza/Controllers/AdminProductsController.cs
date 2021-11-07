@@ -12,10 +12,13 @@ namespace JoesPizza.Controllers
     public class AdminProductsController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly string cs;
 
         public AdminProductsController()
         {
             _context = new ApplicationDBContext();
+            
+
         }
 
         // GET: AdminProducts

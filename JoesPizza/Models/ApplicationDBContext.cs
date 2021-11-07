@@ -16,7 +16,7 @@ namespace JoesPizza.Models
       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=H5CG1220SMZ;Database=PizzaDB;Integrated security=true");
+            optionsBuilder.UseSqlServer("server=sqldbserver7001.database.windows.net;Database=EcommerceDB;User Id=apeksha;Password=sql.me7777");
         }
 
         
